@@ -1,0 +1,12 @@
+version: '3.0'
+services:
+    payara:
+        image: payara/server-full:5.2021.1
+        environment:
+        - PAYARA_ARGS=--debug
+        ports: 
+         - "48080:8080"
+         - "48181:8181"
+         - "48443:8443"
+         - "44848:4848"
+         - "49009:9009"

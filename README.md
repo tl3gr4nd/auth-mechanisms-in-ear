@@ -2,7 +2,7 @@
 
 This repo was created as a reproducer for this ticket
 
-	https://github.com/payara/Payara/issues/
+	https://github.com/payara/Payara/issues/5195
 
 # Description
 
@@ -122,6 +122,31 @@ This script
 
 Using this script you can see if it consistently produces an error.
 You will find it does not. Sometimes it works and you get 200, sometimes 500 with the above stacktrace.
+
+## Related Information
+
+This issue relates to this soteria issue
+
+    https://github.com/eclipse-ee4j/soteria/issues/200
+
+This ticket produces a fix through pull reqeust
+
+    https://github.com/eclipse-ee4j/soteria/pull/243    
+
+but payara uses a patched version of the soteria library:
+
+    https://github.com/payara/patched-src-security-soteria/releases/tag/security-soteria-1.1-b01.payara-p4
+
+I forked the original soteria github repo, and created the branch `issue-200-pull-243`.
+I also forked the patched repo which includes the patch and manually applied the patch to the soteria fork.
+I built the module and copied the jar to my docker payara installation
+
+    docker exec <container> rm -fr appserver/glassfish/domains/domain1/{osgi-cache,generated,applications}
+    docker cp impl/target/javax.security.enterprise-1.1-b01.payara-p5-SNAPSHOT.jar <container>>:/opt/payara/appserver/glassfish/modules/javax.security.enterprise.jar
+
+Redeployed but still no luck.
+
+As a side remark I'm a bit surprised by the fact that fixes in soteria from 2018 are not yet available in payara.
 
 ## Environment ##
 

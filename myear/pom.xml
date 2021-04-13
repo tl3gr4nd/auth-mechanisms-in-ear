@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>nl.thehpi.test.auth-mechanism-in-ear</groupId>
+        <artifactId>parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>myear</artifactId>
+    <packaging>ear</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>nl.thehpi.test.auth-mechanism-in-ear</groupId>
+            <artifactId>myejb</artifactId>
+            <version>${project.parent.version}</version>
+            <type>ejb</type>
+        </dependency>
+        <dependency>
+            <groupId>nl.thehpi.test.auth-mechanism-in-ear</groupId>
+            <artifactId>mywebapp1</artifactId>
+            <version>${project.parent.version}</version>
+            <type>war</type>
+        </dependency>
+        <dependency>
+            <groupId>nl.thehpi.test.auth-mechanism-in-ear</groupId>
+            <artifactId>mywebapp2</artifactId>
+            <version>${project.parent.version}</version>
+            <type>war</type>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ear-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <modules>
+                        <ejbModule>
+                            <groupId>nl.thehpi.test.auth-mechanism-in-ear</groupId>
+                            <artifactId>myejb</artifactId>
+                        </ejbModule>
+                        <webModule>
+                            <groupId>nl.thehpi.test.auth-mechanism-in-ear</groupId>
+                            <artifactId>mywebapp1</artifactId>
+                            <contextRoot>/mywebapp1</contextRoot>
+                            <unpack>true</unpack>
+                            <bundleFileName>mywebapp1.war</bundleFileName>
+                        </webModule>
+                        <webModule>
+                            <groupId>nl.thehpi.test.auth-mechanism-in-ear</groupId>
+                            <artifactId>mywebapp2</artifactId>
+                            <contextRoot>/mywebapp2</contextRoot>
+                            <unpack>true</unpack>
+                            <bundleFileName>mywebapp2.war</bundleFileName>
+                        </webModule>
+                    </modules>
+                    <version>7</version>
+                    <defaultLibBundleDir>lib</defaultLibBundleDir>
+                    <skinnyWars>false</skinnyWars>
+                    <archive>
+                        <manifest>
+                            <addClasspath>false</addClasspath>
+                        </manifest>
+                        <addMavenDescriptor>false</addMavenDescriptor>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
