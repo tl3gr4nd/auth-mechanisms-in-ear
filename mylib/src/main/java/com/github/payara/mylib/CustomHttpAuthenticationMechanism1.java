@@ -1,6 +1,8 @@
-package nl.thehpi.myejb;
+package com.github.payara.mylib;
 
-import javax.enterprise.inject.Typed;
+import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.Initialized;
+import javax.enterprise.event.Observes;
 import javax.security.enterprise.AuthenticationException;
 import javax.security.enterprise.AuthenticationStatus;
 import javax.security.enterprise.authentication.mechanism.http.HttpAuthenticationMechanism;
@@ -11,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Collections;
 import java.util.HashSet;
 
-@Typed(CustomHttpAuthenticationMechanism1.class)
+@ApplicationScoped
 public class CustomHttpAuthenticationMechanism1 implements HttpAuthenticationMechanism {
 
   @Override
@@ -27,6 +29,10 @@ public class CustomHttpAuthenticationMechanism1 implements HttpAuthenticationMec
       return httpMessageContext.notifyContainerAboutLogin(validationResult);
     }
     return AuthenticationStatus.SEND_FAILURE;
+  }
+
+  private void init(@Observes @Initialized(ApplicationScoped.class) Object data) {
+    System.out.println("Some custom initialization here");
   }
 
 }

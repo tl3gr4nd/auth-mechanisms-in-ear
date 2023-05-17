@@ -4,12 +4,7 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          id="WebApp_ID" version="3.0">
 
-  <display-name>MyWebapp1</display-name>
-
-  <context-param>
-    <param-name>fish.payara.security.mechanism</param-name>
-    <param-value>com.github.payara.mylib.CustomHttpAuthenticationMechanism1</param-value>
-  </context-param>
+  <display-name>MyWebapp3</display-name>
 
   <security-constraint>
     <web-resource-collection>

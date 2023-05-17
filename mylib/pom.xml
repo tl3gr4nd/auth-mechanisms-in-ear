@@ -10,19 +10,6 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>mywebapp2</artifactId>
-    <packaging>war</packaging>
-
-    <dependencies>
-        <dependency>
-            <groupId>nl.thehpi.test.auth-mechanism-in-ear</groupId>
-            <artifactId>mylib</artifactId>
-            <version>${project.parent.version}</version>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
-
-    <build>
-        <finalName>mywebapp2</finalName>
-    </build>
+    <artifactId>mylib</artifactId>
+    <packaging>jar</packaging>
 </project>

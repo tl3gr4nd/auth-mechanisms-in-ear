@@ -6,11 +6,6 @@
 
   <display-name>MyWebapp2</display-name>
 
-  <context-param>
-    <param-name>fish.payara.security.mechanism</param-name>
-    <param-value>nl.thehpi.myejb.CustomHttpAuthenticationMechanism2</param-value>
-  </context-param>
-
   <security-constraint>
     <web-resource-collection>
       <web-resource-name>My App</web-resource-name>

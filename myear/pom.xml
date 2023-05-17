@@ -31,6 +31,17 @@
             <artifactId>mywebapp2</artifactId>
             <version>${project.parent.version}</version>
             <type>war</type>
+        </dependency> <dependency>
+            <groupId>nl.thehpi.test.auth-mechanism-in-ear</groupId>
+            <artifactId>mywebapp3</artifactId>
+            <version>${project.parent.version}</version>
+        <type>war</type>
+    </dependency>
+        <dependency>
+            <groupId>nl.thehpi.test.auth-mechanism-in-ear</groupId>
+            <artifactId>mylib</artifactId>
+            <version>${project.parent.version}</version>
+            <type>jar</type>
         </dependency>
     </dependencies>
 
@@ -50,15 +61,22 @@
                             <groupId>nl.thehpi.test.auth-mechanism-in-ear</groupId>
                             <artifactId>mywebapp1</artifactId>
                             <contextRoot>/mywebapp1</contextRoot>
-                            <unpack>true</unpack>
+                            <unpack>false</unpack>
                             <bundleFileName>mywebapp1.war</bundleFileName>
                         </webModule>
                         <webModule>
                             <groupId>nl.thehpi.test.auth-mechanism-in-ear</groupId>
                             <artifactId>mywebapp2</artifactId>
                             <contextRoot>/mywebapp2</contextRoot>
-                            <unpack>true</unpack>
+                            <unpack>false</unpack>
                             <bundleFileName>mywebapp2.war</bundleFileName>
+                        </webModule>
+                        <webModule>
+                            <groupId>nl.thehpi.test.auth-mechanism-in-ear</groupId>
+                            <artifactId>mywebapp3</artifactId>
+                            <contextRoot>/mywebapp3</contextRoot>
+                            <unpack>false</unpack>
+                            <bundleFileName>mywebapp3.war</bundleFileName>
                         </webModule>
                     </modules>
                     <version>7</version>

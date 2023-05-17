@@ -14,7 +14,9 @@
         <module>myejb</module>
         <module>mywebapp1</module>
         <module>mywebapp2</module>
+        <module>mywebapp3</module>
         <module>myear</module>
+        <module>mylib</module>
     </modules>
 
     <properties>
